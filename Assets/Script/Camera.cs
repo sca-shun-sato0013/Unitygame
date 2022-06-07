@@ -1,6 +1,4 @@
 using SoftGear.Strix.Unity.Runtime;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Camera : StrixBehaviour

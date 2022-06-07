@@ -21,7 +21,7 @@ public class Home : MonoBehaviour
 
     public void StartClick()
     {   audioSource.PlayOneShot(sound1);
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("MazeGame");
         
     }
 

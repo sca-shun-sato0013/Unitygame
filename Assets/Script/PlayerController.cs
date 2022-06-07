@@ -2,21 +2,14 @@
 //関数、型名は(UCC：Upper Camel Case)/パスカルケース (Pascal Case)(LCC：Lower Camel Case）
 //変数は(LCC：Lower Camel Case）
 
-
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
 public class PlayerController : MonoBehaviour
 {
-    //===== 定義領域 =================================
-
-
-
     
+  
     private Animator anim;
     private Rigidbody rb;
 
@@ -30,7 +23,7 @@ public class PlayerController : MonoBehaviour
         {
 
             Debug.Log("押された!");
-            SceneManager.LoadScene("HomeScreen");//GameOverの間違いです
+            SceneManager.LoadScene("HomeScreen");　//GameOverの間違いです
             Stop();
 
 
@@ -38,7 +31,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("GameClear"))
         {
             Debug.Log("押された!");
-            SceneManager.LoadScene("GameOver");//HomeScreenの間違いです
+            SceneManager.LoadScene("GameOver");　//HomeScreenの間違いです
             Stop();
 
         }
@@ -58,8 +51,7 @@ public class PlayerController : MonoBehaviour
 
 
     //===== 主処理 ===========================================
-    void FixedUpdate()
-    //FixedUpdate関数は一定秒数ごとに呼ばれる。基本的には0.02秒間隔       
+    void FixedUpdate()　//FixedUpdate関数は一定秒数ごとに呼ばれる。基本的には0.02秒間隔        
     {
         if (Input.GetKey(KeyCode.Return))
         {
@@ -101,10 +93,7 @@ public class PlayerController : MonoBehaviour
     void Stop()
     {
         rb.constraints = RigidbodyConstraints.FreezePosition;
-
     }
-
-
 
 
     void Animation(int number)
