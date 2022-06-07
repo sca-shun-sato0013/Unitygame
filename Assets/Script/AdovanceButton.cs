@@ -18,9 +18,9 @@ public class AdovanceButton : MonoBehaviour
       STATUS_TEXT_ARREY = 20
       
      };
-    
-    //ボタンクリック時のサウンド
-    AudioSource audioSource;　//
+
+    //曲名：魔王魂 効果音 システム37
+    AudioSource audioSource;　
     public AudioClip sound1;
    
     
@@ -35,57 +35,82 @@ public class AdovanceButton : MonoBehaviour
    public static int[] number = new int[(int)controlPanel.NUMBER_ARREY];
 
 
-    //ボタン
-    public Button executionButton; //実行ボタン
-    public Button adovanceButton;　//前進ボタン
-    public Button rotateButton;　  //回転ボタン
     
+
+    //ボタン
+    private Button executionButton; //実行ボタン
+    private Button adovanceButton;　//前進ボタン
+    private Button rotateButton;　  //回転ボタン
+    
+    //ボタンオブジェクト
+    private GameObject executionBt;
+    private GameObject adovanceBt;
+    private GameObject rotateBt;
+
+
     public int execution = 0;　//テキストの出力カウンタ
 
     public static int  positiveNegative = 0; //左移動か右移動判定用
 
 
-        
 
-   
 
+
+    //============初期処理==============================
     void Start()
     {
         
-        StartSetting();//Start関数内容
+        StartSetting();
         
     }
 
-    void StartSetting() 
+    void StartSetting() //Start関数の内容
     {
+        StatusStartSetting();
+        ButtonStartSetting();
+        TextBoxStartSetting();
+    }
 
 
+    void StatusStartSetting()　//start関数のstatusの内容
+    {
         for (int i = 0; i < (int)controlPanel.ARREY_LENGTH; ++i)
         {
-            str[i] = i.ToString(); //型変換
+            str[i] = i.ToString(); 
             str[i] = "Status" + str[i];
 
             status[i] = GameObject.Find("Canvas/" + str[i]);
             statusText[i] = status[i].GetComponent<Text>();
 
-
-
             number[i] = 0;
         }
+    }
 
+    void ButtonStartSetting() //start関数のボタンの内容
+    {
 
+        executionBt = GameObject.Find("Canvas/ExecutionClick");
+        adovanceBt = GameObject.Find("Canvas/AdvanceButton");
+        rotateBt = GameObject.Find("Canvas/RotateButton");
 
-        //Componentを扱えるようにする
-        inputField = inputField.GetComponent<InputField>();
-        text = text.GetComponent<Text>();
-        audioSource = GetComponent<AudioSource>();
-
-
-
-
+        executionButton = executionBt.GetComponent<Button>();
+        adovanceButton = adovanceBt.GetComponent<Button>();
+        rotateButton = rotateBt.GetComponent<Button>();
+       
         executionButton.interactable = false;
         inputField.interactable = false;
+
     }
+
+
+    void TextBoxStartSetting()　//start関数のtextboxの内容
+    {
+        inputField = inputField.GetComponent<InputField>();
+        audioSource = GetComponent<AudioSource>();
+        text = text.GetComponent<Text>();
+    }
+
+
     public void InputText() //テキスト入力時イベント発生
     {
         for(int i = 0; i < (int)controlPanel.ARREY_LENGTH; ++i)
@@ -121,6 +146,7 @@ public class AdovanceButton : MonoBehaviour
         }
 
     }
+
     public void RotateClick() //回転ボタン入力時イベント発生
     {
         audioSource.PlayOneShot(sound1);
@@ -139,8 +165,8 @@ public class AdovanceButton : MonoBehaviour
             }
         }
 
-
     }
+
 
     public void ExecutionClick()　//実行ボタン入力時イベント発生
     {
@@ -155,10 +181,8 @@ public class AdovanceButton : MonoBehaviour
                 Invoke("ButtonLift", AdovanceButton.number[i]);
             }
         }
-
         
         ++execution;
-
 
     }
     
@@ -168,13 +192,10 @@ public class AdovanceButton : MonoBehaviour
         adovanceButton.interactable = true;
         rotateButton.interactable = true;
 
-        
         for(int i = 0; i < (int)controlPanel.ARREY_LENGTH; ++i)
         {
             number[i] = 0;　//number変数はPlayerControllerで使用されている。
-        }                  //その他での使用注意！
-       
-
+        }                  //その他での使用注意！       
     }
-  
+
 }

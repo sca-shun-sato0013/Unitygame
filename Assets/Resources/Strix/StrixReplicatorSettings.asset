@@ -1,16 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 245893209, guid: f2c2112f638c5b8489d16403d930373b, type: 3}
-  m_Name: StrixReplicatorSettings
-  m_EditorClassIdentifier: 
-  replicators:
-  - {fileID: 2649744935188573520, guid: 702ce644a19ec7145a29e6a0683b5492, type: 3}
+version https://git-lfs.github.com/spec/v1
+oid sha256:49fac9f0ef6339c74b47f090639edcf5e53835f18a96d90e731e4f8560d73dd6
+size 511

@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections;
+
 public class Scale : MonoBehaviour
 {
     public Vector3 defaultScale = Vector3.zero;
@@ -17,7 +17,7 @@ public class Scale : MonoBehaviour
         transform.localScale = new Vector3(
                 localScale.x / lossScale.x * defaultScale.x,
                 localScale.y / lossScale.y * defaultScale.y,
-                localScale.z / lossScale.z * defaultScale.z
-        );
+                localScale.z / lossScale.z * defaultScale.z );
+
     }
 }

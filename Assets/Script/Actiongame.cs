@@ -1,14 +1,11 @@
+//ソースコードの命令規則
+//関数、型名は(UCC：Upper Camel Case)/パスカルケース (Pascal Case)(LCC：Lower Camel Case）
+//変数は(LCC：Lower Camel Case）
 
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using SoftGear.Strix.Unity.Runtime;
-
-
-
-
-
-
 
 public class Actiongame : StrixBehaviour
 {
@@ -17,7 +14,7 @@ public class Actiongame : StrixBehaviour
     private Animator anim;
     private int i = 0;
     private GameObject mainCamera;
-    private Rigidbody rb; // Rididbody
+   
     private GameObject text;
     private Text pointText;
     private string str;
@@ -27,8 +24,8 @@ public class Actiongame : StrixBehaviour
     {
         mainCamera = GameObject.Find("Main Camera");
         anim = GetComponent<Animator>();
-        // Rigidbody を取得
-        rb = GetComponent<Rigidbody>();
+       
+        
         text = GameObject.Find("Canvas/Text");
         pointText = text.GetComponent<Text>();
         audioSource = GetComponent<AudioSource>();
@@ -36,7 +33,7 @@ public class Actiongame : StrixBehaviour
     }
 
 
-    void Update()
+    [StrixRpc]void Update()
     {
         if (isLocal == false)
         {
