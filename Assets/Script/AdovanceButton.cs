@@ -28,7 +28,7 @@ public class AdovanceButton : MonoBehaviour
     public InputField inputField;
     public Text text;
 
-　 //各配列の宣言と初期化
+　 //各配列の宣言
    private GameObject[] status = new GameObject[(int)controlPanel.STATUS_ARREY];
    private Text[] statusText = new Text[(int)controlPanel.STATUS_TEXT_ARREY];
    private string[] str = new string[(int)controlPanel.STR_ARREY];
